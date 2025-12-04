@@ -7,4 +7,12 @@ terraform {
   }
 
   required_version = ">= 1.2"
+
+  backend "s3" {
+      bucket         = "local-auctions-terraform-state-storage"
+      key            = "email-service/terraform.tfstate"
+      region         = "us-west-2"
+      encrypt        = true
+      use_lockfile = true
+    }
 }
